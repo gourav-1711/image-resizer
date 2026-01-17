@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Image Optimizer",
+  "description": "Optimize your images with advanced compression, resizing, and format conversion",
+  "url": "https://yoursite.com",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Any",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1000"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Image Optimizer",
+    "url": "https://yoursite.com"
+  },
+  "inLanguage": "en-US",
+  "potentialAction": {
+    "@type": "UseAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://yoursite.com"
+    }
+  }
+}
