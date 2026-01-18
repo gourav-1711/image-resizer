@@ -1,23 +1,30 @@
-import type React from "react"
-import type { Metadata, Viewport } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import ClientLayout from "./ClientLayout"
+import type React from "react";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
+import ClientLayout from "./ClientLayout";
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _geist = Geist({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Image Optimizer - Compress & Resize Images Instantly",
   description:
     "Optimize your images with advanced compression, resizing, and format conversion. Fast, secure, and free. No registration required.",
   generator: "v0.app",
-  keywords: ["image optimizer", "compress images", "resize images", "image converter", "webp converter"],
+  keywords: [
+    "image optimizer",
+    "compress images",
+    "resize images",
+    "image converter",
+    "webp converter",
+  ],
   applicationName: "Image Optimizer",
   authors: [{ name: "Image Optimizer" }],
   creator: "Image Optimizer",
   publisher: "Image Optimizer",
+  manifest: "/manifest.json",
   formatDetection: {
     email: false,
     telephone: false,
@@ -25,7 +32,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Image Optimizer - Compress & Resize Images Instantly",
-    description: "Optimize your images with advanced compression, resizing, and format conversion.",
+    description:
+      "Optimize your images with advanced compression, resizing, and format conversion.",
     url: "https://yoursite.com",
     siteName: "Image Optimizer",
     images: [
@@ -42,7 +50,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Image Optimizer - Compress & Resize Images Instantly",
-    description: "Optimize your images with advanced compression, resizing, and format conversion.",
+    description:
+      "Optimize your images with advanced compression, resizing, and format conversion.",
     images: ["https://yoursite.com/og-image.png"],
   },
   icons: {
@@ -78,7 +87,7 @@ export const metadata: Metadata = {
   verification: {
     google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
-}
+};
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -89,12 +98,12 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -103,5 +112,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
