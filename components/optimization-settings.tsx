@@ -1,21 +1,30 @@
-"use client"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
-import { Switch } from "@/components/ui/switch"
+"use client";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
 
 interface OptimizationSettingsProps {
   settings: {
-    quality: number
-    format: "webp" | "jpeg" | "png"
-    maxWidth: number
-    maxHeight: number
-    removeMetadata: boolean
-  }
-  onChange: (settings: OptimizationSettingsProps["settings"]) => void
+    quality: number;
+    format: "webp" | "jpeg" | "png";
+    maxWidth: number;
+    maxHeight: number;
+    removeMetadata: boolean;
+  };
+  onChange: (settings: OptimizationSettingsProps["settings"]) => void;
 }
 
-export default function OptimizationSettings({ settings, onChange }: OptimizationSettingsProps) {
+export default function OptimizationSettings({
+  settings,
+  onChange,
+}: OptimizationSettingsProps) {
   return (
     <div className="space-y-4">
       {/* Format */}
@@ -23,7 +32,12 @@ export default function OptimizationSettings({ settings, onChange }: Optimizatio
         <Label htmlFor="format" className="text-sm font-medium">
           Format
         </Label>
-        <Select value={settings.format} onValueChange={(format) => onChange({ ...settings, format: format as any })}>
+        <Select
+          value={settings.format}
+          onValueChange={(format) =>
+            onChange({ ...settings, format: format as any })
+          }
+        >
           <SelectTrigger className="mt-1">
             <SelectValue />
           </SelectTrigger>
@@ -41,7 +55,9 @@ export default function OptimizationSettings({ settings, onChange }: Optimizatio
           <Label htmlFor="quality" className="text-sm font-medium">
             Quality
           </Label>
-          <span className="text-sm font-medium text-primary">{settings.quality}%</span>
+          <span className="text-sm font-medium text-primary">
+            {settings.quality}%
+          </span>
         </div>
         <Slider
           value={[settings.quality]}
@@ -61,7 +77,26 @@ export default function OptimizationSettings({ settings, onChange }: Optimizatio
         <input
           type="number"
           value={settings.maxWidth}
-          onChange={(e) => onChange({ ...settings, maxWidth: Number(e.target.value) })}
+          onChange={(e) =>
+            onChange({ ...settings, maxWidth: Number(e.target.value) })
+          }
+          className="w-full mt-1 px-3 py-1 border border-border rounded-md bg-background"
+          min={100}
+          max={4000}
+        />
+      </div>
+
+      {/* Max Height */}
+      <div>
+        <Label htmlFor="maxHeight" className="text-sm font-medium">
+          Max Height (px)
+        </Label>
+        <input
+          type="number"
+          value={settings.maxHeight}
+          onChange={(e) =>
+            onChange({ ...settings, maxHeight: Number(e.target.value) })
+          }
           className="w-full mt-1 px-3 py-1 border border-border rounded-md bg-background"
           min={100}
           max={4000}
@@ -75,9 +110,11 @@ export default function OptimizationSettings({ settings, onChange }: Optimizatio
         </Label>
         <Switch
           checked={settings.removeMetadata}
-          onCheckedChange={(checked) => onChange({ ...settings, removeMetadata: checked })}
+          onCheckedChange={(checked) =>
+            onChange({ ...settings, removeMetadata: checked })
+          }
         />
       </div>
     </div>
-  )
+  );
 }
