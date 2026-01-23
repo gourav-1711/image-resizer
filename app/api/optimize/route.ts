@@ -3,6 +3,9 @@ import sharp from "sharp";
 
 export const config = {
   maxDuration: 60,
+  api: {
+    responseSizeLimit: "50mb",
+  },
 };
 
 // Increase Sharp's memory limits for large images
