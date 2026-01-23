@@ -13,10 +13,11 @@ import { Switch } from "@/components/ui/switch";
 interface OptimizationSettingsProps {
   settings: {
     quality: number;
-    format: "webp" | "jpeg" | "png";
+    format: "webp" | "jpeg" | "png" | "ico";
     maxWidth: number;
     maxHeight: number;
     removeMetadata: boolean;
+    maintainAspectRatio: boolean;
   };
   onChange: (settings: OptimizationSettingsProps["settings"]) => void;
 }
@@ -45,6 +46,7 @@ export default function OptimizationSettings({
             <SelectItem value="webp">WebP (Recommended)</SelectItem>
             <SelectItem value="jpeg">JPEG</SelectItem>
             <SelectItem value="png">PNG</SelectItem>
+            <SelectItem value="ico">ICO (Icon)</SelectItem>
           </SelectContent>
         </Select>
       </div>
@@ -100,6 +102,19 @@ export default function OptimizationSettings({
           className="w-full mt-1 px-3 py-1 border border-border rounded-md bg-background"
           min={100}
           max={4000}
+        />
+      </div>
+
+      {/* Maintain Aspect Ratio */}
+      <div className="flex items-center justify-between">
+        <Label htmlFor="maintainAspectRatio" className="text-sm font-medium">
+          Maintain Aspect Ratio
+        </Label>
+        <Switch
+          checked={settings.maintainAspectRatio}
+          onCheckedChange={(checked) =>
+            onChange({ ...settings, maintainAspectRatio: checked })
+          }
         />
       </div>
 

@@ -11,6 +11,12 @@ const nextConfig = {
       bodySizeLimit: "50mb",
     },
   },
+  // Increase API route body size limit for large images
+  api: {
+    bodyParser: {
+      sizeLimit: "50mb",
+    },
+  },
 };
 
 export default nextConfig;
